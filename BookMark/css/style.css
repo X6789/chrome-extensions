@@ -1,0 +1,65 @@
+#book-mark-tag {
+    position: absolute;
+    height: 55px;
+    width: 60px;
+    background-color: rgba(153,0,51,0.4);
+    z-index: 10000;
+    text-align: center;
+    color: #fff;
+    font-family: "Hiragino Sans GB","Microsoft Yahei",arial,\5b8b\4f53,"Helvetica Neue",Helvetica,STHeiTi,sans-serif;
+}
+
+#book-mark-tag .tag-word {
+    font-size: 14px;
+    display: inline-block;
+    margin-top: 16px;
+}
+
+#book-mark-tag:before, #book-mark-tag:after {
+    content: "";
+    position: absolute;
+    height: 0;
+    width: 0;
+    border: 15px solid transparent;
+    bottom: -30px;
+}
+
+#book-mark-tag:before {
+    border-left-color: rgba(153,0,51, 0.4);
+    border-top-color: rgba(153,0,51, 0.4);
+    left: 0;
+}
+
+#book-mark-tag:after {
+    border-right-color: rgba(153,0,51, 0.4);
+    border-top-color: rgba(153,0,51, 0.4);
+    right: 0px;
+}
+
+#book-mark-tag .js-delete {
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 18px;
+  position: absolute;
+  right: 3px;
+  top: 0;
+  cursor: pointer;
+  display: none;
+}
+
+#book-mark-tag:hover .js-delete {
+    display: inline-block;
+}
+
+#book-mark-tag:hover {
+    background-color: rgba(153,0,51, 0.7);
+}
+
+#book-mark-tag:hover:after {
+    border-right-color: rgba(153,0,51, 0.7);
+    border-top-color: rgba(153,0,51, 0.7);
+}
+
+#book-mark-tag:hover:before {
+    border-left-color: rgba(153,0,51, 0.7);
+    border-top-color: rgba(153,0,51, 0.7);
+}
