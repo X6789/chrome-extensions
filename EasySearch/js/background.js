@@ -236,7 +236,20 @@ var Background = (function () {
         injectScript2Iframe()
     }
 
+    // public functions ---------------------------------------------------------
+    _this.tell = function (message, data) {
+        var data = data || {};
 
+        // find the current tab and send a message to "inject.js" and all the iframes
+        chrome.tabs.getSelected(null, function (tab) {
+            if (!tab) return;
+
+            chrome.tabs.sendMessage(tab.id, {
+                message: message,
+                data: data
+            });
+        });
+    };
 
     return _this;
 }());
