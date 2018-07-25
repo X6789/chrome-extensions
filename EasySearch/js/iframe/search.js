@@ -24,7 +24,7 @@ var Search = (function () {
             src: "https://www.google.com/search?q=" + keyword,
             scrolling: true
         });
-        $('#left-search').append(iframe);
+        $('#right-search').append(iframe);
     }
 
     function loadBingSearch(keyword) {
@@ -33,7 +33,7 @@ var Search = (function () {
             src: "https://cn.bing.com/search?q=" + keyword,
             scrolling: true
         });
-        $('#right-search').append(iframe);
+        $('#left-search').append(iframe);
     }
 
 

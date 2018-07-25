@@ -20,12 +20,8 @@ var Background = (function () {
 
     // initialize ---------------------------------------------------------------
     _this.init = function () {
-
         // receive post messages from "inject.js" and any iframes
         chrome.extension.onRequest.addListener(onPostMessage);
-
-        // manage when a user change tabs
-        // chrome.tabs.onActivated.addListener(onTabActivated);
 
         //linstening hotkey press events
         chrome.commands.onCommand.addListener(onHotkeyPressed);
@@ -34,10 +30,11 @@ var Background = (function () {
         chrome.webRequest.onHeadersReceived.addListener(setResponseHeader, _xFrameRequestFilter, ["blocking", "responseHeaders"]);
 
         //=================  rewrite  user agent before request
-        // chrome.webRequest.onBeforeSendHeaders.addListener(setUserAgentBeforeRequest, _requestFilter, ['requestHeaders', 'blocking']);
+        chrome.webRequest.onBeforeSendHeaders.addListener(setUserAgentBeforeRequest, _xFrameRequestFilter, ['requestHeaders', 'blocking']);
 
         //=================  rewrite  google search url onBeforeSendHeaders
         // chrome.webRequest.onBeforeSendHeaders.addListener(rewriteGoogleSearchURLBeforeRequest, _googleSearchRequestFilter, ['blocking', 'requestHeaders']);
+
         // var pattern = /^https?:\/\/www\.google\.com\/url\?.*&url=(.*)&ei=/i;
         // chrome.webNavigation.onBeforeNavigate.addListener(function(details) {
         // 	if (pattern.test(details.url)) {
@@ -48,14 +45,9 @@ var Background = (function () {
         // 	}
         // });
         //=================  browserAction setting...
-        // chrome.browserAction.onClicked.addListener(function(tab) {
-        // chrome.browserAction.setBadgeText({
-        // 	text: "1"
-        // });
-        // chrome.browserAction.setPopup({
-        // 	popup: "html/popup.html"
-        // })
-        // });
+        chrome.browserAction.onClicked.addListener(function (tab) {
+            startEasySearch();
+        });
     }
     // private functions --------------------------------------------------------
     function upateCurrentTab() {};

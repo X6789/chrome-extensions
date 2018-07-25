@@ -60,21 +60,21 @@
     height: 100%;
 }
 
-
 /*//////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////  EasySearch Style  //////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////*/
 
-.body-scrollbar::-webkit-scrollbar {
-    width: 6px;
+::-webkit-scrollbar {
+    width: 3px;
+    height: 5px;
 }
 
-.body-scrollbar::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
     border-radius: 200px;
-    background-color: #dde4e6;
+    background-color: #ebedee;
 }
 
-.body-scrollbar::-webkit-scrollbar-thumb {
-    background-color: #9fa9ac;
+::-webkit-scrollbar-thumb {
+    background-color: #ced2d3;
     border-radius: 200px;
 }
