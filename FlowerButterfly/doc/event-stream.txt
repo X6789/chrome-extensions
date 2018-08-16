@@ -1,0 +1,64 @@
+event: load new tab
+    -- chrome inject inject.js to tab
+    -- inject.js: create element [x-container] to tab
+
+
+event: user click widget 
+    when private var _switch=false
+    -- background.js: change icon color red-->blue 
+    -- background.js: change var _switch=true
+    -- background.js send message[start-widget] to inject
+        -- inject.js: load iframe to element [x-container]
+            -- widget.js: load homepage
+            -- iframe.js: send message [iframes-loaded] to inject
+                -- inject.js: send message [iframes-loaded] to background
+        -- inject.js: send message[widget-loaded] to background
+            -- background: send message [load-homepage] to iframe
+                -- iframe: (widget.js) after receiving  message,  load homepage to panel(in the widget)
+
+    
+    when private var _switch=true
+    -- background.js: change icon color blue-->red 
+    -- background.js: change var _switch=false
+    -- background.js: send message[stop-widget] to inject
+        -- inject.js: remove class[active] from element [x-container]
+
+
+event: user create new tab
+    -- background.js: judge  if(!_lastTab.isChromePanel) send message[reset_widget] to inject
+        -- inject.js: empty element [x-container]
+    -- background.js: rewrite private var _lastTab = previous page's 
+
+
+
+
+
+
+
+
+
+
+
+
+
+================================= status =======================
+default init:
+    -- status: init, gray
+    -- event:   new tab:
+        -- status: init, gray
+        -- event:  update tab url:
+            -- status: ready, red 
+            -- event:  new tab :
+                -- status: ready, red 
+                -- event:  click widget:
+                        -- status: open green
+                        -- event:  new tab :
+                                -- status: suspend, blue
+                -- click widget:
+                        suspend, blue
+    -- event:  update tab url:
+        -- status: ready, red 
+        -- event:  click widget:
+            -- status: open green
+            -- event:  click widget:
+                 -- status: suspend, blue

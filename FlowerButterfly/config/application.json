@@ -1,0 +1,49 @@
+[{
+        "id": "app-huxiu",
+        "name": "虎嗅网",
+        "icon": "../../images/app-huxiu.png",
+        "src": "https://m.huxiu.com/"
+    },
+    {
+        "id": "app-wy",
+        "name": "网易新闻",
+        "icon": "../../images/app-wy.jpg",
+        "src": "https://3g.163.com/touch/news/"
+    },
+    {
+        "id": "app-bd",
+        "name": "百度新闻",
+        "icon": "../../images/app-bd.png",
+        "src": "https://news.baidu.com/news#/"
+    },
+    {
+        "id": "app-qq",
+        "name": "腾讯新闻",
+        "icon": "../../images/app-qq.png",
+        "src": "https://xw.qq.com/"
+    },
+    {
+        "id": "app-tm",
+        "name": "天猫",
+        "icon": "../../images/app-tm.png",
+        "src": "https://www.tmall.com/"
+    },
+    {
+        "id": "app-tb",
+        "name": "淘宝",
+        "icon": "../../images/app-tb.png",
+        "src": "https://h5.m.taobao.com/"
+    },
+    {
+        "id": "app-jd",
+        "name": "京东",
+        "icon": "../../images/app-jd.jpg",
+        "src": "https://m.jd.com/"
+    },
+    {
+        "id": "app-wp",
+        "name": "唯品会",
+        "icon": "../../images/app-wp.png",
+        "src": "https://m.vip.com/"
+    }
+]
