@@ -1,0 +1,58 @@
+{
+    "name": "聚合卡",
+    "version": "1.0",
+    "description": "聚合卡",
+    "manifest_version": 2,
+    "icons": {
+        "128": "images/icon-128.png"
+    },
+    "background": {
+        "page": "html/background.html"
+    },
+    "browser_action": {
+        "default_title": "聚合卡",
+        "default_icon": "images/gray-icon-32.png"
+        // "default_popup": "html/popup.html"
+    },
+    "content_scripts": [{
+        "matches": ["http://*/*", "https://*/*"], //["<all_urls>"],
+        "all_frames": true,
+        "exclude_globs": ["*.jpg", "*.jpeg", "*.gif", "*.png", "*.bmp", "*.webp",
+            "*.css", "*.swf", "*.js", "*.zip", "*.rar", "*.tar", "*.tar.gz", "*.tgz", "*.tar.bz2", "*.tbz2",
+            "*.doc", "*.docx", "*.ppt", "*.pptx", "*.xls", "*.xlsx", "*.pdf", "*.xml", "*.txt",
+            "*.mpg", "*.mpeg", "*.qt", "*.mp4", "*.m4v", "*.m4a", "*.mp3", "*.ogv", "*.ogm", "*.ogg", "*.oga", "*.webm", "*.wav",
+            "*.", "*."
+        ],
+        "css": ["css/inject.css"],
+        "js": ["js/resource/jquery-3.2.1.min.js", "js/inject.js", "js/iframe/decorator.js"], //, "js/iframe/decorator.js"
+        "run_at": "document_start"
+    }],
+    "web_accessible_resources": [
+        "html/iframe/*",
+        "getFrameId"
+    ],
+    // "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+    "permissions": [
+        "tabs",
+        "cookies",
+        "activeTab",
+        "webRequest",
+        "webRequestBlocking",
+        "<all_urls>"
+    ],
+    // "chrome_url_overrides": {
+    //     "newtab": "html/new_tab.html"
+    // },
+    "commands": {
+        "startApplication": {
+            "description": "启动聚合卡",
+            "suggested_key": {
+                "windows": "Alt+S",
+                "mac": "Command+Shift+Y",
+                "chromeos": "Ctrl+Shift+U",
+                "linux": "Ctrl+Shift+J",
+                "default": "Alt+S"
+            }
+        }
+    }
+}

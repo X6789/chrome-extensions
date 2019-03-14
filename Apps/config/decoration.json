@@ -1,0 +1,3 @@
+{
+    "https:\/\/m.toutiao.com/": "if ($('a.close')) {$('a.close').parent().remove();window.clearInterval(this);"
+}

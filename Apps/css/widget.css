@@ -1,0 +1,154 @@
+/*//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////  GENERAL  ///////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////*/
+
+body {
+    background: rgba(0, 0, 0, 0) none repeat scroll !important;
+    font: 11px Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body * {
+    box-sizing: border-box;
+}
+
+/*//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////  widget-box  ///////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////*/
+
+#widget-box {
+    align-items: center;
+    border-radius: 10px;
+    background: #fafcfc;
+    width: 396px;
+    height: 98%;
+}
+
+#widget-background {
+    align-items: center;
+    border-radius: 10px;
+    background-image: url(../images/win-bg3.jpg);
+    width: 396px;
+    height: 98%;
+    opacity: 0.25;
+}
+
+#widget-header {
+    position: fixed;
+    width: 100%;
+    height: 15px;
+    top: 0px;
+    /* right: 1px; */
+    z-index: 999;
+    background: #f1efef;
+    border-radius: 10px 10px 0px 0px;
+}
+
+#widget-button {
+    position: fixed;
+    width: 100%;
+    height: 50px;
+    bottom: 0px;
+    z-index: 999;
+    background: #f1efef;
+    display: flex;
+    justify-content: space-around;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+#widget-button .menu {
+    width: 50px;
+    height: 45px;
+    cursor: pointer;
+    background-repeat: no-repeat;
+}
+
+#widget-button #btn-menu {
+    background-image: url("../images/m-menu.png");
+    background-position: 10px 10px;
+}
+
+#widget-button #btn-home {
+    width: 60px;
+    background-image: url("../images/m-home.png");
+    background-position: 10px 3px;
+}
+
+#widget-button #btn-back {
+    background-image: url("../images/m-rtn.png");
+    background-position: 10px 10px;
+}
+
+#widget-content {
+    position: fixed;
+    width: 100%;
+    top: 10px;
+    z-index: 999;
+    background: rgba(0, 0, 0, 0) none repeat scroll !important;
+    display: flex;
+    padding-bottom: 80px;
+}
+
+#widget-menu {
+    display: none;
+}
+
+#widget-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#widget-content iframe {
+    width: 100%;
+    height: 93%;
+    border: 0px;
+    align-items: center;
+    margin: 0 auto;
+}
+
+#widget-content .app-icon {
+    margin: 25px;
+    width: 48px;
+    height: 48px;
+}
+
+/*//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////      App Style    //////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////*/
+
+@keyframes myAnimation {
+    0% {
+        opacity: 0;
+        color: #b6bdb8;
+        transform: scale(1, 1);
+    }
+    20% {
+        opacity: 0.8;
+        color: #62a275;
+        transform: scale(1.1, 1.1);
+    }
+    40% {
+        opacity: 1;
+        color: #027ae4;
+        transform: scale(1.2, 1.2);
+    }
+    60% {
+        opacity: 1;
+        color: #4e0dc7;
+        transform: scale(1.3, 1.3);
+    }
+    80% {
+        opacity: 1;
+        color: #027ae4;
+        transform: scale(1.2, 1.2);
+    }
+    100% {
+        opacity: 1;
+        color: #009688;
+        transform: scale(1.1, 1.1);
+    }
+}
