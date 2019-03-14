@@ -16,7 +16,7 @@ var Background = (function () {
         ]
     };
 
-    var _ua = 'Mozilla/5.0 (iPad; CPU OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1';
+    var _ua = 'Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1';
 
     // initialize ---------------------------------------------------------------
     _this.init = function () {
@@ -121,6 +121,7 @@ var Background = (function () {
 
     //set user agent before request
     function setUserAgentBeforeRequest(d) {
+        if(d.type == 'main_frame') return;
         var headers = d.requestHeaders;
         for (var i = 0; i < headers.length; i++) {
             if (headers[i].name.toLowerCase() == "user-agent") {
@@ -128,6 +129,7 @@ var Background = (function () {
                 break;
             }
         }
+        // $.cookie('SRCHHPGUSR', 'CW=832&CH=431&DPR=2&UTC=480&WTS=63688122150&SW=768&SH=1024');
         return {
             requestHeaders: headers
         };
@@ -135,12 +137,15 @@ var Background = (function () {
 
     //set x-frame-options for load google into iframe
     function setResponseHeader(details) {
-        for (var i = 0; i < details.responseHeaders.length; ++i) {
-            if (details.responseHeaders[i].name.toLowerCase() == 'x-frame-options') {
-                details.responseHeaders.splice(i, 1);
-                return {
-                    responseHeaders: details.responseHeaders
-                };
+        if(details.type == 'main_frame') return;
+        if(details.url.indexOf('www.google.com')!=-1){
+            for (var i = 0; i < details.responseHeaders.length; ++i) {
+                if (details.responseHeaders[i].name.toLowerCase() == 'x-frame-options') {
+                    details.responseHeaders.splice(i, 1);
+                    return {
+                        responseHeaders: details.responseHeaders
+                    };
+                }
             }
         }
     }

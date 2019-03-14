@@ -19,7 +19,7 @@ var Inject = (function () {
         _container.appendTo(document.body);
 
         // add the "widget" and "search" iframes
-        loadWidget('widget', _container);
+        // loadWidget('widget', _container); //  **** 嵌入页面的 浮层控件 ****
         // loadView('search', _container);
 
         // listen to the iframes/webpages message
@@ -199,12 +199,52 @@ var Inject = (function () {
         });
     };
 
+    return _this;
+}());
 
+var Decorator = (function () {
+    var _this = {};
 
+    _this.init = function () {
+        //change all page background color
+        invertColors();
+        $('body').css('background-color','#5A5D5C');
+    }
+
+    function invertElement() {
+        var colorProperties = ['color', 'background-color'];
+        var color = null;
+        for (var prop in colorProperties) {
+            prop = colorProperties[prop];
+            if (!$(this).css(prop)) continue;
+            if ($(this).data(prop) != $(this).css(prop)) continue;
+            color = new RGBColor($(this).css(prop));
+            if (color.ok) {
+                $(this).css(prop, 'rgb(' + (255 - color.r) + ',' + (255 - color.g) + ',' + (255 - color.b) + ')');
+            }
+            color = null;
+        }
+    }
+
+    function invertColors() {
+        $('body').find('*').addBack().each(function () {
+            var colorProperties = ['color', 'background-color'];
+            for (var prop in colorProperties) {
+                prop = colorProperties[prop];
+                console.log(prop, $(this), $(this).data(prop), $(this).css(prop));
+                $(this).data(prop, $(this).css(prop));
+            }
+        });
+        $('body').find('*').addBack().each(invertElement);
+        $('iframe').each(function () {
+            $(this).contents().find('*').each(invertElement);
+        });
+    }
     return _this;
 }());
 document.addEventListener("DOMContentLoaded", function () {
     if (window.frames.length == parent.frames.length) {　　
+        Decorator.init();
         Inject.init();
     } else {
         console.log('ENV=IFrame,  URL =>: ' + window.location.href);
