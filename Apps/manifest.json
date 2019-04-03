@@ -1,7 +1,7 @@
 {
-    "name": "聚合卡",
+    "name": "聚合资讯",
     "version": "1.0",
-    "description": "聚合卡",
+    "description": "聚合资讯",
     "manifest_version": 2,
     "icons": {
         "128": "images/icon-128.png"
@@ -10,7 +10,7 @@
         "page": "html/background.html"
     },
     "browser_action": {
-        "default_title": "聚合卡",
+        "default_title": "聚合资讯",
         "default_icon": "images/gray-icon-32.png"
         // "default_popup": "html/popup.html"
     },

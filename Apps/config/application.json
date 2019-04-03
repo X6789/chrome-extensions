@@ -45,5 +45,29 @@
         "name": "唯品会",
         "icon": "../../images/app-wp.png",
         "src": "https://m.vip.com/"
+    },
+    {
+        "id": "app-my",
+        "name": "猫眼",
+        "icon": "../../images/app-my.jpg",
+        "src": "https://piaofang.maoyan.com/?ver=normal"
+    },
+    {
+        "id": "app-xl",
+        "name": "新浪财经",
+        "icon": "../../images/app-xl.jpg",
+        "src": "https://watchlist.sina.cn/#/MyStock/All"
+    },
+    {
+        "id": "app-weibo",
+        "name": "新浪微博",
+        "icon": "../../images/app-weibo.jpg",
+        "src": "https://m.weibo.cn/u/210034262"
+    },
+    {
+        "id": "app-iqiyi",
+        "name": "爱奇艺",
+        "icon": "../../images/app-iqiyi.jpg",
+        "src": "https://m.iqiyi.com/"
     }
 ]

@@ -54,8 +54,8 @@ var Decorator = (function () {
 var cfgs = {
     "m.huxiu.com": {
         "script": "\
-                if ($('a.guide-box')) {\
-                    $('a.guide-box').remove(); \
+                if ($('div#guide-box')) {\
+                    $('div#guide-box').remove(); \
                     $('div.index-ad-box').remove();\
                     window.clearInterval(this)\
                 }\
@@ -136,7 +136,46 @@ var cfgs = {
                 }\
                 ",
         "interval": 500
+    },
+    "watchlist.sina.cn": {
+        "script": "\
+                $('div.js-app-header').remove(); \
+                if ($('footer')) {\
+                    $('footer').remove(); \
+                    window.clearInterval(this)\
+                }\
+                ",
+        "interval": 500
+    },
+    "m.weibo.cn": {
+        "script": "\
+                if ($('aside.OpenInAppButton')) {\
+                    $('aside.OpenInAppButton').remove(); \
+                    window.clearInterval(this)\
+                }\
+                ",
+        "interval": 500
+    },
+    "m.iqiyi.com": {
+        "script": "\
+                if ($('div.header-app')) {\
+                    $('.header-app').remove(); \
+                    window.clearInterval(this)\
+                }\
+                ",
+        "interval": 500
+    },
+    "piaofang.maoyan.com": {
+        "script": "\
+                if ($('a.to-pc')) {\
+                    $('a.to-pc').remove(); \
+                    window.clearInterval(this)\
+                }\
+                ",
+        "interval": 500
     }
+
+
 };
 
 

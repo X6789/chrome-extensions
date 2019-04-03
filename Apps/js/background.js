@@ -24,11 +24,13 @@ var Background = (function () {
             'https://*.tmall.com/*',
             'https://*.m.tmall.com/*',
             'https://h5.m.taobao.com/*',
-            'http://*.m.taobao.com/*',
+            'https://*.m.taobao.com/*',
             'https://m.jd.com/*',
             'https://*.m.jd.com/*',
             'https://m.vip.com/*',
-            'https://h5.vip.com/*'
+            'https://h5.vip.com/*',
+            'https://m.iqiyi.com/*',
+            'https://watchlist.sina.cn/*',
         ]
     };
 
