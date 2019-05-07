@@ -3,6 +3,7 @@ var  Popup = (function(){
     var _host = document.location.host;
     var _ex_status = 'open';
 
+
     _this.init = function (current_url) {
         _host = current_url;
         // alert('popup init ==> ' + current_url);
@@ -26,27 +27,32 @@ var  Popup = (function(){
         });
 
         chrome.storage.local.get(['style'], function(data){
-            $("div[name='bg-style']").removeClass('selected');
-            $("div[x_style='" + data.style + "']").addClass('selected');
+            $("div[name='bg-style']").removeClass('x-selected');
+            $("div[x_style='" + data.style + "']").addClass('x-selected');
         });
     }
 
-    _this.ex = chrome.extension.getBackgroundPage();
+    try{
+        _this.EX = chrome.extension.getBackgroundPage();
+    }catch(e){
+        console.log(e);
+    }
+
     _this.switch = function(id, sw) {
         var target = $('#' + id);
         var old_status = target.attr('status');
         if (sw == 'open') {
             target.attr('status','open');
-            target.children(".front").css("left", (target.children(".back").outerWidth() - target
-                .children(".front").outerWidth()) + "px");
-            target.children(".front").css("background-color", "#7ba7f7");
-            target.children(".back").css("background-color", "#8787ec");
+            target.children(".x-front").css("left", (target.children(".x-back").outerWidth() - target
+                .children(".x-front").outerWidth()) + "px");
+            target.children(".x-front").css("background-color", "#7ba7f7");
+            target.children(".x-back").css("background-color", "#8787ec");
 
         } else {
             target.attr('status','close');
-            target.children(".front").css("left", 0);
-            target.children(".front").css("background-color", "lightgrey");
-            target.children(".back").css("background-color", "lightgrey");
+            target.children(".x-front").css("left", 0);
+            target.children(".x-front").css("background-color", "lightgrey");
+            target.children(".x-back").css("background-color", "lightgrey");
         }
         // console.log('\nelement[' + target.get(0).id + '] ' + old_status + ' => ' + target.attr('status'));
     }
@@ -56,17 +62,22 @@ var  Popup = (function(){
 
 
 document.addEventListener("DOMContentLoaded", function () {
-    chrome.tabs.query({currentWindow: true, active: true}, function(tabs){
-        var current_url  = tabs[0].url;
-        Popup.init(current_url);
-    });
+    try{
+        chrome.tabs.query({currentWindow: true, active: true}, function(tabs){
+            var current_url  = tabs[0].url;
+            Popup.init(current_url);
+        });
+    }catch(e){
+        console.log(e)
+    }
+
 
     $(document).on("click", "#current", function () {
         var global_status = $('#global').attr('status');
         if (global_status == 'open') {
             var next_status = $('#current').attr('status') == 'open' ? 'close' : 'open';
             Popup.switch('current', next_status);
-            Popup.ex.Background.set_current_page(next_status);
+            Popup.EX.Background.set_current_page(next_status);
         } else {
             console.log('global_status=' + global_status + ',  so can not set open for current');
         }
@@ -75,27 +86,28 @@ document.addEventListener("DOMContentLoaded", function () {
     $(document).on("click", "#global", function () {
         var next_status = $(this).attr('status') == 'open' ? 'close' : 'open';
         Popup.switch('global', next_status);
-        Popup.ex.Background.set_global_page(next_status);
+        Popup.EX.Background.set_global_page(next_status);
 
         Popup.switch('current', next_status);
-        Popup.ex.Background.set_current_page(next_status);
+        Popup.EX.Background.set_current_page(next_status);
     });
 
     $(document).on("click", "div[name='bg-style']", function () {
-        $("div[name='bg-style']").removeClass('selected');
-        $(this).addClass('selected');
+        $("div[name='bg-style']").removeClass('x-selected');
+        $(this).addClass('x-selected');
         var x_style = $(this).attr('x_style');
-        Popup.ex.Background.set_global_style(x_style);
+        Popup.EX.Background.set_global_style(x_style);
 
         var current_status = $('#current').attr('status');
         if (current_status == 'open') {
-            Popup.ex.Background.set_current_page('setx');
+            Popup.EX.Background.set_current_page('setx');
         } else {
             console.log('global_status=' + global_status + ',  so can not set open for current');
         }
     });
 
 }, false);
+
 
 
 

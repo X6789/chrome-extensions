@@ -16,7 +16,7 @@ var Inject = (function () {
         'x-green':{
             'xb':'#3d7a6b',
             'xc':'#2a2b2b',
-            'xa':'#77ca5f'
+            'xa':'#201598'
         }
     }
 

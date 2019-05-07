@@ -37,6 +37,7 @@
         "cookies",
         "activeTab",
         "storage",
+        "unlimitedStorage",
         "webRequest",
         "webRequestBlocking",
         "http://*/*",
