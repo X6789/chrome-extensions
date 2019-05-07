@@ -1,21 +1,19 @@
 {
-    // basic info --------------------------------------------------------------
     "name": "BlackQ",
     "version": "1.0",
-    "description": "黑鬼",
+    "description": "低调奢华",
     "manifest_version": 2,
     "icons": {
-        "128": "images/icon.png"
+        "32": "images/icon32.png",
+        "128": "images/icon128.png"
     },
     "background": {
         "page": "html/background.html"
     },
-    // type --------------------------------------------------------------
     "browser_action": {
-        "default_icon": "images/icon.png"
-        // "default_popup": "html/popup.html"
+        "default_icon": "images/icon32.png",
+        "default_popup": "html/popup.html"
     },
-    // page injection --------------------------------------------------------------
     "content_scripts": [{
         "matches": ["http://*/*", "https://*/*"],
         "all_frames": true,
@@ -25,12 +23,11 @@
             "*.mpg", "*.mpeg", "*.qt", "*.mp4", "*.m4v", "*.m4a", "*.mp3", "*.ogv", "*.ogm", "*.ogg", "*.oga", "*.webm", "*.wav",
             "*.", "*."
         ],
-        "css": ["css/inject.css"],
-        "js": ["js/rgbcolor.js","js/zepto.min.js", "js/inject.js"],
+        "css": ["css/inject.css","css/popup.css"],
+        "js": ["js/jquery-3.2.1.min.js", "js/inject.js","js/popup.js"],
         "run_at": "document_start"
     }],
 
-    // imports & permissions --------------------------------------------------------------
     "web_accessible_resources": [
         "html/iframe/*",
         "getFrameId"
@@ -39,6 +36,7 @@
         "tabs",
         "cookies",
         "activeTab",
+        "storage",
         "webRequest",
         "webRequestBlocking",
         "http://*/*",
