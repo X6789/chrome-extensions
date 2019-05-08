@@ -51,7 +51,7 @@ var  Popup = (function(){
         } else {
             target.attr('status','close');
             target.children(".x-front").css("left", 0);
-            target.children(".x-front").css("background-color", "lightgrey");
+            target.children(".x-front").css("background-color", "#8f9490");
             target.children(".x-back").css("background-color", "lightgrey");
         }
         // console.log('\nelement[' + target.get(0).id + '] ' + old_status + ' => ' + target.attr('status'));
