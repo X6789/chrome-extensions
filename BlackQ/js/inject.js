@@ -1,7 +1,7 @@
 var Inject = (function () {
     var _this = {};
     var _ex_status = 'open';
-    var _host = document.location.href;
+    var _host = document.location.host;
     var _style = {
         'x-gray':{
             'xb':'#302f31',
