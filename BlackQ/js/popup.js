@@ -100,6 +100,10 @@ $(document).ready(function () {
             console.log('global_status=' + global_status + ',  so can not set open for current');
         }
     });
+
+    $(document).on("click", "#x-div-bottom div", function () {
+        $("#x-alipay").show();
+    });
 });
 
 

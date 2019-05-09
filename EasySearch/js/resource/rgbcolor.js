@@ -283,3 +283,44 @@ function RGBColor(color_string) {
     }
 
 }
+
+
+//private function
+function invertElement() {
+        var colorProperties = ['color', 'background-color'];
+        var color = null;
+        for (var prop in colorProperties) {
+            prop = colorProperties[prop];
+            if (!$(this).css(prop)) continue;
+            if ($(this).data(prop) != $(this).css(prop)) continue;
+            color = new RGBColor($(this).css(prop));
+            if (color.ok) {
+                $(this).css(prop, 'rgb(' + (255 - color.r) + ',' + (255 - color.g) + ',' + (255 - color.b) + ')');
+            }
+            color = null;
+        }
+}
+
+function invertColors() {
+        $('body').find('*').each(function () {
+            var colorProperties = ['color', 'background-color'];
+            for (var prop in colorProperties) {
+                prop = colorProperties[prop];
+                console.log(prop, $(this), $(this).data(prop), $(this).css(prop));
+                $(this).data(prop, $(this).css(prop));
+            }
+        });
+        $('body').find('*').each(invertElement);
+        $('iframe').each(function () {
+            $(this).contents().find('*').each(invertElement);
+        });
+}
+
+
+        // $('div').each(function () {
+        //     var prop = 'background-color';
+        //     var color = new RGBColor($(this).css(prop));
+        //     if (color.ok) {
+        //         $(this).css(prop, 'rgb(' + (color.r-100) + ',' + (color.g-150) + ',' + (color.b-180) + ')');
+        //     }
+        // });

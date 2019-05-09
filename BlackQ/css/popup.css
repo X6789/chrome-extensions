@@ -49,18 +49,37 @@
   }
 
   .x-div-bottom {
+    cursor:pointer;
     text-align: center;
     margin-top: 30px;
+    width: 100%;
     height: 20px;
     font-size: 5px;
-    color: #363538;
+    color: #405040;
     background-color: #1e1f1f;
   }
+
   .x-qr{
     width: 14px;
     height: 15px;
     display: inline-flex;
-    background:url(../images/qr-a.png) no-repeat 0 0;;
+    background:url(../images/qr.png) no-repeat 0 0;
+  }
+
+  .x-alipay {
+    display:none;
+    position:fixed;
+    z-index:1;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-color: #000000;
+  }
+
+  .x-alipay img{
+    width: 140px;
+    height: 140px;
   }
 
   .x-on-off {
@@ -70,7 +89,7 @@
     /* vertical-align: middle; */
     width: 70px;
     height: 20px;
-}
+  }
 
   .x-back {
     width: 60px;

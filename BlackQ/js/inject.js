@@ -10,13 +10,13 @@ var Inject = (function () {
         },
         'x-white':{
             'xb':'#babdbd',
-            'xc':'#404142',
-            'xa':'#0c1db5'
+            'xc':'#586c80',
+            'xa':'#71506b'
         },
         'x-green':{
             'xb':'#3d7a6b',
             'xc':'#2a2b2b',
-            'xa':'#201598'
+            'xa':'#323b73'
         }
     }
 
