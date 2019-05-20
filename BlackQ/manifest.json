@@ -1,7 +1,7 @@
 {
     "name": "BlackQ",
     "version": "1.0",
-    "description": "低调奢华",
+    "description": "BlackQ",
     "manifest_version": 2,
     "icons": {
         "32": "images/icon32.png",

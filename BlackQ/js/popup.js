@@ -96,8 +96,6 @@ $(document).ready(function () {
         var current_status = $('#current').attr('status');
         if (current_status == 'open') {
             Popup.EX.set_current_page('setx');
-        } else {
-            console.log('global_status=' + global_status + ',  so can not set open for current');
         }
     });
 
